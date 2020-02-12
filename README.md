@@ -3,6 +3,6 @@ projet react native
 
 # npm install
 
-# For IOS run with:
-npx react-native run-ios
+# Run with:
+npm run start
 
