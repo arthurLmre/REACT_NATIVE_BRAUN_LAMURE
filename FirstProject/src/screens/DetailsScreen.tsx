@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {SafeAreaView, StatusBar, Text, View} from "react-native";
-import {Characters} from "./HomeScreen";
+import {Characters} from "../global/APIType";
 import {getCharacterById} from "../global/getCharacter";
 
 
