@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {SafeAreaView, StatusBar, Text, View} from "react-native";
-import {Characters} from "./HomeScreen";
+import {Image, SafeAreaView, StatusBar, Text, View} from "react-native";
+
+import {Characters} from "../global/APIType";
 import {getCharacterById} from "../global/getCharacter";
 
 
@@ -15,10 +16,22 @@ const DetailsScreen = ({ route }) => {
 
     return (
         <View>
-            <StatusBar barStyle="dark-content" />
             <SafeAreaView>
                 <View>
+                    <Image style={{width: 50, height: 50}} source={{uri: character?.image}}/>
                     <Text> {character?.name} </Text>
+                    <Text> {character?.species} </Text>
+                    <Text> {character?.status} </Text>
+                    <Text> {character?.gender} </Text>
+                    <Text> Episodes </Text>
+                    {
+                        character?.episode.map(episodeName =>
+                            <Text>
+                                {episodeName.replace('https://rickandmortyapi.com/api/episode/', "")}
+                            </Text>
+                        )
+                    }
+
                 </View>
             </SafeAreaView>
         </View>

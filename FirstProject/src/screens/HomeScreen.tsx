@@ -29,7 +29,7 @@ import {SearchBar} from "../components/SearchBar";
 const HomeScreen = (props) => {
   const [characters, setCharacters] = React.useState<Characters[]>([])
   const [loading, setLoading] = React.useState(false)
-  const [page, setPage] = React.useState(0)
+  const [page, setPage] = React.useState(1)
   const [inputCharacterName, setInputCharacterName] = React.useState("")
 
   React.useEffect(() => {
@@ -39,8 +39,8 @@ const HomeScreen = (props) => {
     getCharacters(page, inputCharacterName).then(data => {
       console.log('data: ', data);
       if (!cancel) {
-        if(data != null && data.results != null) {
-          setCharacters(data.results.map(d => d))
+        if(data != null) {
+          setCharacters(data.results)
           setLoading(false)
         }
       }

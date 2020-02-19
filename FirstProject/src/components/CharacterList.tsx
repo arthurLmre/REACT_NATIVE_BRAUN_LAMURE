@@ -6,7 +6,7 @@ type CustomItemProps = { name: string, image: string, species: string, onPress: 
 const Item: ({name, image, species, onPress}: CustomItemProps) => any = ({name, image, species, onPress}: CustomItemProps) =>  {
     return (
         <TouchableOpacity onPress={onPress}>
-            <Image source={{uri: image}}/>
+            <Image style={{width: 50, height: 50}} source={{uri: image}}/>
             <Text>{species}</Text>
             <Text>{name}</Text>
         </TouchableOpacity>
