@@ -24,6 +24,7 @@ import {getCharacters} from "../global/getCharacters";
 import {CharacterList} from "../components/CharacterList";
 import {NavigationButton} from "../components/NavigationButton";
 import {SearchBar} from "../components/SearchBar";
+import {getEpisodesByIds} from "../global/getListOfEpisodes";
 
 
 const HomeScreen = (props) => {
