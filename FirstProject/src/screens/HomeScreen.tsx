@@ -10,12 +10,12 @@
 
 import * as React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar, Button, Image, FlatList, TouchableOpacity, TextInput
+    SafeAreaView,
+    StyleSheet,
+    ScrollView,
+    View,
+    Text,
+    StatusBar, Button, Image, FlatList, TouchableOpacity, TextInput
 } from 'react-native';
 
 import {Characters} from "../global/APIType";
@@ -61,7 +61,6 @@ const HomeScreen = (props) => {
     </SafeAreaView>
   );
 };
-
 
 
 export default HomeScreen;
