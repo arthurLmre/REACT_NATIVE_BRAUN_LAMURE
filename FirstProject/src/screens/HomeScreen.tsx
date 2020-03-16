@@ -10,12 +10,12 @@
 
 import * as React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar, Button, Image, FlatList, TouchableOpacity, TextInput
+    SafeAreaView,
+    StyleSheet,
+    ScrollView,
+    View,
+    Text,
+    StatusBar, Button, Image, FlatList, TouchableOpacity, TextInput
 } from 'react-native';
 
 import {Characters} from "../global/APIType";
@@ -41,7 +41,11 @@ const HomeScreen = (props) => {
       console.log('data: ', data);
       if (!cancel) {
         if(data != null) {
-          setCharacters(data.results)
+            if(page == 0){
+                setCharacters(data.results)
+            }else {
+                setCharacters(characters.concat(data.results))
+            }
           setLoading(false)
         }
       }
@@ -56,13 +60,24 @@ const HomeScreen = (props) => {
     <SafeAreaView>
        <View>
          <SearchBar inputCharacterName={inputCharacterName} setInputCharacterName={setInputCharacterName}/>
-         <CharacterList characters={characters} navigation={props.navigation}/>
-         <NavigationButton loading={loading} inputCharacterName={inputCharacterName} page={page} setPage={setPage} characters={characters}/>
+           {/*<View style={styles.buttonFootage}>*/}
+           {/*    <NavigationButton loading={loading} inputCharacterName={inputCharacterName} page={page} setPage={setPage} characters={characters}/>*/}
+           {/*</View>*/}
+         <CharacterList characters={characters} navigation={props.navigation} page={page} setPage={setPage}/>
         </View>
     </SafeAreaView>
   );
 };
 
+const styles = StyleSheet.create({
+    buttonFootage: {
+        flexGrow: 1,
+        position: "absolute",
+        bottom: 0,
+        height: 100,
+        backgroundColor: "red"
+    }
+});
 
 
 export default HomeScreen;

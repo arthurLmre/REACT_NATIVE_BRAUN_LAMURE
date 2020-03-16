@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {Image, SafeAreaView, StatusBar, Text, View} from "react-native";
-
+import {SafeAreaView, StatusBar, Text, View} from "react-native";
+import {Characters} from "../global/APIType";
+import {getCharacterById} from "../global/getCharacter";
 import {Characters, Episodes} from "../global/APIType";
 import {getCharacterById} from "../global/getCharacter";
 import {getEpisodesByIds} from "../global/getListOfEpisodes";
