@@ -5,16 +5,7 @@ const styles = StyleSheet.create({
         display: 'flex'
     },
 
-    itemHolder: {
-        padding: 8,
-        paddingStart: 4,
-        backgroundColor: "#88b6ddde"
-    },
 
-    listViewHolder: {
-        padding: 4,
-        backgroundColor: "linear-gradient(to bottom, #1d2b64, #f8cdda)"
-    },
 
     searchBar: {
         width: 12,

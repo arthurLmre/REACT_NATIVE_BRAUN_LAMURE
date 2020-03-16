@@ -29,7 +29,7 @@ import {SearchBar} from "../components/SearchBar";
 const HomeScreen = (props) => {
   const [characters, setCharacters] = React.useState<Characters[]>([])
   const [loading, setLoading] = React.useState(false)
-  const [page, setPage] = React.useState(0)
+  const [page, setPage] = React.useState(cd 1)
   const [inputCharacterName, setInputCharacterName] = React.useState("")
 
   React.useEffect(() => {
@@ -39,8 +39,12 @@ const HomeScreen = (props) => {
     getCharacters(page, inputCharacterName).then(data => {
       console.log('data: ', data);
       if (!cancel) {
-        if(data != null && data.results != null) {
-          setCharacters(data.results.map(d => d))
+        if(data != null) {
+            if(page == 0){
+                setCharacters(data.results)
+            }else {
+                setCharacters(characters.concat(data.results))
+            }
           setLoading(false)
         }
       }
@@ -55,12 +59,24 @@ const HomeScreen = (props) => {
     <SafeAreaView>
        <View>
          <SearchBar inputCharacterName={inputCharacterName} setInputCharacterName={setInputCharacterName}/>
-         <CharacterList characters={characters} navigation={props.navigation}/>
-         <NavigationButton loading={loading} inputCharacterName={inputCharacterName} page={page} setPage={setPage} characters={characters}/>
+           {/*<View style={styles.buttonFootage}>*/}
+           {/*    <NavigationButton loading={loading} inputCharacterName={inputCharacterName} page={page} setPage={setPage} characters={characters}/>*/}
+           {/*</View>*/}
+         <CharacterList characters={characters} navigation={props.navigation} page={page} setPage={setPage}/>
         </View>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+    buttonFootage: {
+        flexGrow: 1,
+        position: "absolute",
+        bottom: 0,
+        height: 100,
+        backgroundColor: "red"
+    }
+});
 
 
 export default HomeScreen;
