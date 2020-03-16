@@ -1,3 +1,4 @@
+export const BASE_URL = "https://rickandmortyapi.com/api/episode/";
 export type ApiRes = {
     results: Characters[]
     info: any
@@ -20,5 +21,14 @@ export type Characters = {
     image: string
     episode: [string]
     url: string
+    created: string
+}
+export type Episodes = {
+    id: number,
+    name: string,
+    air_date: string,
+    episode: string,
+    characters: Characters[]
+    url: string,
     created: string
 }

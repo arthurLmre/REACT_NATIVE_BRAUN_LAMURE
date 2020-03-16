@@ -24,12 +24,13 @@ import {getCharacters} from "../global/getCharacters";
 import {CharacterList} from "../components/CharacterList";
 import {NavigationButton} from "../components/NavigationButton";
 import {SearchBar} from "../components/SearchBar";
+import {getEpisodesByIds} from "../global/getListOfEpisodes";
 
 
 const HomeScreen = (props) => {
   const [characters, setCharacters] = React.useState<Characters[]>([])
   const [loading, setLoading] = React.useState(false)
-  const [page, setPage] = React.useState(cd 1)
+  const [page, setPage] = React.useState(1)
   const [inputCharacterName, setInputCharacterName] = React.useState("")
 
   React.useEffect(() => {
