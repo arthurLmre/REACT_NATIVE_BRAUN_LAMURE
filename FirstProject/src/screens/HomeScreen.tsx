@@ -41,7 +41,10 @@ const HomeScreen = (props) => {
       console.log('data: ', data);
       if (!cancel) {
         if(data != null) {
-            if(page == 0){
+            if(inputCharacterName != null && inputCharacterName != ""){
+                setCharacters(data.results)
+                setPage(0)
+            }else if (page == 1){
                 setCharacters(data.results)
             }else {
                 setCharacters(characters.concat(data.results))

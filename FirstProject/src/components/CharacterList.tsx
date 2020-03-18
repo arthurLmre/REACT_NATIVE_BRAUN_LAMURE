@@ -34,7 +34,7 @@ export const CharacterList: React.FC<CustomCharacterListProps> = ({characters: c
                                 image={item.image}
                                 name={item.name}
                                 species={item.species}
-                                onPress={() => navigation.push("ViewDetails", {characterId: item.id})}
+                                onPress={() => navigation.push("CharacterViewDetails", {characterId: item.id})}
                           />
                   }
         />

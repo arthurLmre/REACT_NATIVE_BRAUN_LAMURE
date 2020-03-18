@@ -1,4 +1,4 @@
-import {TextInput} from "react-native";
+import {StyleSheet, TextInput} from "react-native";
 import * as React from "react";
 
 
@@ -6,9 +6,19 @@ type CustomSearchBarProps = {inputCharacterName: string, setInputCharacterName: 
 export const SearchBar: React.FC<CustomSearchBarProps> = ({inputCharacterName, setInputCharacterName}) => {
     return (
         <TextInput
-            style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+            style={styles.searchBarContainer}
             onChangeText={(text) => setInputCharacterName(text)}
             value={inputCharacterName}
         />
     )
 }
+
+
+const styles = StyleSheet.create({
+    searchBarContainer: {
+        margin: 4,
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1
+    }
+})

@@ -28,7 +28,7 @@ export type Episodes = {
     name: string,
     air_date: string,
     episode: string,
-    characters: Characters[]
+    charactersURL: string[]
     url: string,
     created: string
 }
