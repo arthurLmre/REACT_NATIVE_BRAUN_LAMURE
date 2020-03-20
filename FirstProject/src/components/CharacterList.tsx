@@ -1,4 +1,4 @@
-import {FlatList, Image, StyleSheet, Text, TouchableOpacity} from "react-native";
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import * as React from "react";
 import {ApiRes, Characters} from "../global/APIType";
 import {getCharacters} from "../global/getCharacters";
@@ -8,8 +8,12 @@ const Item: ({name, image, species, onPress, myStyle}: CustomItemProps) => any =
     return (
         <TouchableOpacity style={myStyle} onPress={onPress}>
             <Image style={styles.itemHolderImage} source={{uri: image}}/>
-            <Text style={styles.itemHolderText}>{name}</Text>
-            <Text style={styles.itemHolderText}>{species}</Text>
+            <View style={{justifyContent: "center"}}>
+                <View style={styles.textContainer}>
+                    <Text style={styles.itemHolderTitle}>{name}</Text>
+                </View>
+                <Text style={styles.itemHolderText}>{species}</Text>
+            </View>
         </TouchableOpacity>
     );
 };
@@ -50,8 +54,15 @@ const styles = StyleSheet.create({
         padding: 4,
     },
 
+    textContainer: {
+        width: 250,
+        flexDirection: "row",
+        flexWrap: "wrap",
+    },
+
     itemHolder: {
         display: "flex",
+        flexDirection: "row",
         padding: 16,
         paddingStart: 12,
         margin: 12,
@@ -61,15 +72,27 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 4,
         elevation: 8,
-        backgroundColor: "#26D0CE"
-    }, itemHolderText: {
+        backgroundColor: "#DFE4E6"
+    },
+    itemHolderText: {
         elevation: 0,
-        color: "#FFF",
+        color: "#BAA954",
         fontWeight: "bold"
+    },
+    itemHolderTitle: {
+        elevation: 0,
+        color: "#BAA954",
+        fontWeight: "bold",
+        fontSize: 22,
+        flex: 1
     },
     itemHolderImage: {
         width: 75,
-        height: 75
+        height: 75,
+        marginRight: 20,
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: "#BAA954"
     }
 
 
