@@ -23,9 +23,12 @@ const DetailsScreen = (props) => {
                 parseInt(episode.replace('https://rickandmortyapi.com/api/episode/', "")))
             getEpisodesByIds(episodesIds).then((ep) => {
                 setEpisodes(ep)
+                if(ep.length == null) { // Car des fois renvoie un Episode et pas Episode[]
+                    let tempEpisode = []
+                    tempEpisode.push(ep)
+                    setEpisodes(tempEpisode)
+                }
             })
-            //character?.episode.reduce(episode => episode.split('/').pop() //return last elem dans notre cas l'id
-            //episodesIds.push(parseInt(character?.episode.reduce(episode => episode.replace('https://rickandmortyapi.com/api/episode/', ""))));
         })
     }, [])
     return (

@@ -1,8 +1,8 @@
-import {Characters} from "./APIType";
+import {ApiRes, Characters} from "./APIType";
 
 export const getCharacterByIds = (ids: string[]) => {
     return fetch("https://rickandmortyapi.com/api/character/" + ids.join(','), {
         headers: { Accept: 'application/json' },
-    }).then<Characters[]>(res => res.json())
+    }).then<ApiRes>(res => res.json())
 }
 
