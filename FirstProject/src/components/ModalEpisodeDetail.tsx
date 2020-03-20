@@ -30,8 +30,9 @@ const CharacterImage: ({key, image, onPress}: CustomEpisodeCardProps) => any = (
     )
 }
 
-type CustomCharactersEpisodeListProps = {episode: any, navigation: any}
-const CharactersEpisodeList: React.FC<CustomCharactersEpisodeListProps>= ({episode: episode, navigation: navigation}: CustomCharactersEpisodeListProps) => {
+type CustomCharactersEpisodeListProps = {episode: any, navigation: any, modalOpen: boolean, setModalOpen: (bool) => void}
+const CharactersEpisodeList: React.FC<CustomCharactersEpisodeListProps>= ({episode: episode, navigation: navigation,
+                                                                              modalOpen: modalOpen, setModalOpen: setModalOpen}: CustomCharactersEpisodeListProps) => {
     const [characters, setCharacters] = React.useState<Characters[]>()
 
     React.useEffect(() => {
@@ -54,7 +55,11 @@ const CharactersEpisodeList: React.FC<CustomCharactersEpisodeListProps>= ({episo
                           <CharacterImage
                                 key={item.id}
                                 image={item.image}
-                                onPress={() => navigation.push("CharacterViewDetails", {characterId: item.id})}
+                                onPress={() => {
+                                    setModalOpen(!modalOpen)
+                                    navigation.push("CharacterViewDetails", {characterId: item.id})
+                                    }
+                                }
                           />
                   }
         />
@@ -74,7 +79,7 @@ export const ModalEpisodeDetails: React.FC<CustomModalEpisodeProps> = ({episode:
 
                 <View style={styles.contentContainer}>
                     <Text style={[styles.titleHolder, styles.margin20]}>{episode?.name}</Text>
-                    <CharactersEpisodeList episode={episode} navigation={navigation}/>
+                    <CharactersEpisodeList episode={episode} navigation={navigation} modalOpen={modalOpen} setModalOpen={setModalOpen}/>
                     <Text style={[styles.textHolder, styles.margin20]}>{episode?.air_date}</Text>
                 </View>
             </SafeAreaView>
