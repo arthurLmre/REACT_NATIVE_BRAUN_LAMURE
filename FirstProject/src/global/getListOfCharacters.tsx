@@ -1,4 +1,4 @@
-import {BASE_URL, Characters} from "./APIType";
+import {Characters} from "./APIType";
 
 export const getCharacterByIds = (ids: string[]) => {
     return fetch("https://rickandmortyapi.com/api/character/" + ids.join(','), {
