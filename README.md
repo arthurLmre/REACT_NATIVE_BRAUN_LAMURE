@@ -4,5 +4,6 @@ projet react native
 # npm install
 
 # Run with:
-npm run start
+npm run ios
 
+# If not working open project with xcode
