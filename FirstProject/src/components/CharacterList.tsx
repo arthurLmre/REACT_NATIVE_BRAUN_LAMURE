@@ -48,7 +48,8 @@ export const CharacterList: React.FC<CustomCharacterListProps> = ({characters: c
 const styles = StyleSheet.create({
     characterContainer: {
         display: 'flex',
-        zIndex: 1
+        zIndex: 1,
+        marginBottom: 60
     },
     listViewHolder: {
         padding: 4,

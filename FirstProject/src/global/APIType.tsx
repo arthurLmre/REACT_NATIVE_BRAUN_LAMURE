@@ -3,6 +3,10 @@ export type ApiRes = {
     results: Characters[]
     info: any
 }
+export type ApiResEp = {
+    results: Episodes[]
+    info: any
+}
 export type Characters = {
     id: number
     name: string

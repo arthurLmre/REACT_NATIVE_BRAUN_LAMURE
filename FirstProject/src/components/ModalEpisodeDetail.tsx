@@ -14,7 +14,6 @@ import {Header, Icon} from "react-native-elements";
 import {getCharacterByIds} from "../global/getListOfCharacters";
 
 type CustomModalCloseButtonProps = {onPress: () => void}
-
 const CloseButton: React.FC<CustomModalCloseButtonProps> = ({onPress: onPress}: CustomModalCloseButtonProps) => {
     return (
         <Icon  name={'close'} color={'#fff'} size={33} onPress={() => onPress()}/>
@@ -122,6 +121,7 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight: 'bold',
         flexWrap: 'wrap',
+        textAlign: 'center'
     },
     margin20: {
         margin: 20
